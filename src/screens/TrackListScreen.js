@@ -8,7 +8,6 @@ const TrackListScreen = ({ navigation }) => {
   const { state, fetchTracks } = useContext(TrackContext);
   return (
     <>
-      <Text style={{ fontSize: 48 }}>TrackListScreen</Text>
       <NavigationEvents onWillFocus={fetchTracks} />
       <FlatList
         data={state}
@@ -33,6 +32,11 @@ const TrackListScreen = ({ navigation }) => {
     </>
   );
 };
+
+TrackListScreen.navigationOptions = {
+  title: "Tracks",
+};
+
 const styles = StyleSheet.create({});
 
 export default TrackListScreen;
