@@ -33,11 +33,15 @@ export default (shouldTrack, callback) => {
     if (shouldTrack) {
       startWatching();
     } else {
-      //stop!
       subscriber.remove();
       setSubscriber(null);
     }
-  }, [shouldTrack]);
+    return () => {
+      if (subscriber) {
+        subscriber.remove();
+      }
+    };
+  }, [shouldTrack, callback]);
 
   return [err];
 };
