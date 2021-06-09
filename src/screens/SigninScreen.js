@@ -11,11 +11,7 @@ const SigninScreen = () => {
 
   return (
     <View style={styles.container}>
-      <NavigationEvents
-        onWillFocus={() => {
-          clearErrorMessage;
-        }}
-      />
+      <NavigationEvents onWillFocus={clearErrorMessage} />
       <AuthForm
         headerText="Sign In To Your Account"
         onSubmit={signin}
